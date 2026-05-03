@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Fussion Labs - AI-Powered Web Development Agency</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Logo - ADD YOUR LOGO HERE (1/10 images) -->
+    <div class="logo-container" id="logoContainer">
+        <img src="site fusion logo.png" alt="Site Fussion Labs Logo" class="logo" id="logo">
+        <div class="admin-login" id="adminLogin">
+            <i class="fas fa-user-shield"></i> Admin Login
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="adminForm">
+                <input type="password" id="adminPass" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="modal" id="adminDashboard">
+        <div class="modal-content admin-dashboard">
+            <span class="close" id="closeDashboard">&times;</span>
+            <h2>Admin Dashboard</h2>
+            
+            <!-- Portfolio Management -->
+            <div class="admin-section">
+                <h3><i class="fas fa-images"></i> Manage Portfolio</h3>
+                <form id="portfolioForm">
+                    <input type="text" id="projectTitle" placeholder="Project Title" required>
+                    <input type="url" id="projectImage" placeholder="Project Image URL" required>
+                    <textarea id="projectDesc" placeholder="Project Description" required></textarea>
+                    <button type="submit">Add Project</button>
+                </form>
+                <div id="portfolioList"></div>
+            </div>
+
+            <!-- Reviews Management -->
+            <div class="admin-section">
+                <h3><i class="fas fa-star"></i> Manage Reviews</h3>
+                <form id="reviewForm">
+                    <input type="text" id="clientName" placeholder="Client Name" required>
+                    <input type="text" id="clientCompany" placeholder="Company" required>
+                    <textarea id="reviewText" placeholder="Review Text" required></textarea>
+                    <button type="submit">Add Review</button>
+                </form>
+                <div id="reviewList"></div>
+            </div>
+
+            <!-- Enquiries -->
+            <div class="admin-section">
+                <h3><i class="fas fa-comments"></i> Enquiries</h3>
+                <div id="enquiryList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Site Fussion Labs</span>
+                <br>AI-Powered Web Development
+            </h1>
+            <p class="hero-subtitle">Transforming businesses with cutting-edge AI solutions, WhatsApp automation & stunning websites</p>
+            <div class="hero-buttons">
+                <button class="cta-button primary" onclick="scrollToEnquiry()">
+                    <i class="fas fa-rocket"></i> Get Started Free
+                </button>
+                <button class="cta-button secondary" onclick="scrollToServices()">
+                    <i class="fas fa-play"></i> Watch Demo
+                </button>
+            </div>
+        </div>
+        <!-- ADD LAPTOP IMAGE HERE (2/10 images) -->
+        <div class="hero-3d">
+            <img src="x8oyLJtDJBPmL59WUoa36C-1280-80.jpg.webp" alt="Coding Laptop" class="laptop-3d">
+            <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our AI-Powered Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website Building</h3>
+                    <p>Lightning-fast, SEO-optimized websites built with modern tech stack</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Generated Projects</h3>
+                    <p>AI-powered content, chatbots, and automation for your business</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Integration</h3>
+                    <p>Automated messaging, CRM integration & 24/7 customer support</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>AI Auto Messaging</h3>
+                    <p>Intelligent chat systems that respond instantly to leads</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Portfolio</h2>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">What Clients Say</h2>
+            <div class="reviews-container" id="reviewsContainer">
+                <!-- Reviews will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Site Fussion Labs?</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning Fast Delivery</h3>
+                    <p>Websites delivered in 7 days or less</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 AI Support</h3>
+                    <p>Automated support system working round the clock</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>200% ROI Guaranteed</h3>
+                    <p>Proven results with money-back guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Section -->
+    <section class="enquiry" id="enquirySection">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Business?</h2>
+            <p class="section-subtitle">Get instant WhatsApp response & free consultation</p>
+            <form class="enquiry-form" id="enquiryForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email (Optional)">
+                    <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="cta-button primary full-width">
+                    <i class="fab fa-whatsapp"></i> Send WhatsApp Enquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Owner Details -->
+    <section class="owner-details">
+        <div class="container">
+            <div class="owner-card">
+                <div class="owner-image">
+                    <!-- ADD OWNER PHOTO HERE (3/10 images) -->
+                    <img src="WhatsApp Image 2026-04-20 at 19.41.04.jpeg" alt="MD Ashhab Alam">
+                </div>
+                <div class="owner-info">
+                    <h3>MD Ashhab Alam</h3>
+                    <p>Managing Director - Site Fussion Labs</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Bhilai, C.G</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+919981251207">9981251207</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:mdashhabalam05@gmail.com">mdashhabalam05@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Success Modal -->
+    <div class="modal" id="whatsappModal">
+        <div class="modal-content whatsapp-success">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <h2>✅ Message Sent Successfully!</h2>
+            <p>We've received your enquiry on WhatsApp. Our AI assistant will respond within 60 seconds asking about your needs!</p>
+            <p><strong>Owner will contact you soon!</strong></p>
+            <button onclick="closeWhatsAppModal()" class="cta-button primary">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
